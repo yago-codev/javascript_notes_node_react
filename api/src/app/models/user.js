@@ -39,4 +39,15 @@ userSchema.pre('save', function(next) {
   }
 });
 
+// método auxiliar do mongoose: será utilizado para fazer a verificação da senha na rota de autenticação.
+userSchema.methods.validatePassword = function(password, callback) {
+  // comparando o password informado pelo usuário com o password do banco de dados
+  bcrypt.compare(password, this.password, function(err, same) {
+    if (err)
+      callback(err);
+    else 
+      callback(err, same);
+  });
+}
+
 module.exports = mongoose.model('User', userSchema);
