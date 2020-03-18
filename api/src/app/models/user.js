@@ -25,4 +25,18 @@ let userSchema = new mongoose.Schema({
   },
 });
 
+// operação realizada antes dos dados serem persistidos na tabela
+userSchema.pre('save', function(next) {
+  if (this.isNew || this.isModified('password')) {
+    bcrypt.hash(this.password, 10, (err, hashedPassword) => {
+      if (err) {
+        next(err);
+      } else {
+        this.password = hashedPassword;
+        next();
+      }
+    });
+  }
+});
+
 module.exports = mongoose.model('User', userSchema);
