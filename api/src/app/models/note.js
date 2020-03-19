@@ -19,4 +19,7 @@ let noteSchema = new mongoose.Schema({
   }
 });
 
+// definindo quais campos das notas serão filtrados e vinculando esses campos ao índice
+noteSchema.index({ 'title': 'text', 'body': 'text' }); 
+
 module.exports = mongoose.model('Note', noteSchema);

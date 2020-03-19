@@ -81,4 +81,19 @@ module.exports = {
       res.status(500).json({ error: 'Problem to delete a note!' });
     }
   },
+  search: async(req, res) => {
+    const { query } = req.query; // pegando a query na url
+
+    try {
+      let notes = await Note
+        .find({ author: req.user._id })
+        // criando o índice para apontar quais campos serão pesquisados dentro da nota
+        .find({ $text: { $search: query } }); 
+
+      res.json(notes);
+    }
+    catch (error) {
+      res.status(500).json({ error: error });
+    }
+  }
 }
