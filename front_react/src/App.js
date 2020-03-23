@@ -1,13 +1,12 @@
 import React from 'react';
-import { Notification, Section } from 'rbx';
 
-import Header from './components/Header';
+import Routes from './routes';
 
 import './App.scss';
 
 const App = () => (
   <>
-    <Header />
+    <Routes />
   </>
 );
 
