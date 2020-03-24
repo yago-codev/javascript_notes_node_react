@@ -2,6 +2,7 @@ import React from 'react';
 import { Column, Section, Title, Container, Card } from 'rbx';
 
 import Header from '../../../components/Header';
+import RegisterForm from '../../../components/Auth/RegisterForm';
 
 import logoImage from '../../../assets/images/logo.png';
 
@@ -14,13 +15,13 @@ const Register = () => (
     <Section size="medium" className="auth">
       <Container>
         <Column.Group centered>
-          <Column size={3}>
+          <Column size={4}>
             <Card>
               <Card.Content>
                 <Section>
                   <Column.Group centered>
                     <Column size={12}>
-                      <img src={logoImage} />
+                      <img src={logoImage} alt="Logo Javascript Note" />
                     </Column>
                   </Column.Group>
 
@@ -31,6 +32,7 @@ const Register = () => (
                       </Title>
                     </Column>
                   </Column.Group>
+                  <RegisterForm /> {/* form de registro */}
                 </Section>
               </Card.Content>
             </Card>
