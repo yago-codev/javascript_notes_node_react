@@ -1,5 +1,6 @@
 import React from 'react';
-import { Navbar, Container } from 'rbx';
+import { Navbar, Container, Column } from 'rbx';
+import { Link } from 'react-router-dom';
 
 import './index.scss';
 
@@ -10,7 +11,9 @@ export default function Header() {
     <Navbar>
       <Container>
         <Navbar.Brand>
-          <img src={LogoImage} alt="Logo Javascript Note" />
+          <Link to="/">
+            <img src={LogoImage} alt="Logo Javascript Note" />
+          </Link>
           <Navbar.Burger
             className="navbar-burguer burguer"
             aria-label="menu"
@@ -25,7 +28,19 @@ export default function Header() {
 
         <Navbar.Menu id="navbar-menu">
           <Navbar.Segment as="div" className="navbar-item navbar-end" align="right">
-            Item 1
+            <Column.Group>
+              <Column>
+                <Link to="/register" className="button is-white has-text-custom-purple">
+                  Registre-se
+                </Link>
+              </Column>
+
+              <Column>
+                <Link to="/login" className="button is-outlined is-custom-purple">
+                  Login
+                </Link>
+              </Column>
+            </Column.Group>
           </Navbar.Segment>
         </Navbar.Menu>
       </Container>

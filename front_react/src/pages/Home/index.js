@@ -1,5 +1,6 @@
 import React from 'react';
 import { Column, Section, Title, Container } from 'rbx';
+import { Link } from 'react-router-dom';
 
 import Header from '../../components/Header';
 
@@ -23,9 +24,9 @@ const Home = () => {
                 Backend: API NodeJS com Express e MongoDB.
                 Front: React.
               </Title>
-              <a href="/" className="button is-outlined is-white is-large">
-                <strong>Register for free now</strong>
-              </a>
+              <Link to="/register" className="button is-outlined is-white is-large">
+                <strong>Criar Conta Gratuíta</strong>
+              </Link>
             </Column>
             <Column size={6} offset={1}>
               <img src={presentationImage} alt="Apresentação da aplicação sendo exibida notebook e tablet" />
